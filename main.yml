@@ -8,9 +8,9 @@
   
   tasks:
     - include_tasks: task.yml
-# checking min space 50MB on server
       when: ansible_distribution == "Amazon" and ansible_mounts[0].size_available >= 50000000
 
+#alert if there is no min space in disk
     - include_tasks: task-2.yml
       when: ansible_distribution == "Amazon" and ansible_mounts[0].size_available <= 50000000
       
