@@ -1,0 +1,25 @@
+- name: "install apache and php"
+  yum:
+    name:
+      - httpd
+    state: present
+  
+- name: "downoad websiute files"
+  unarchive:
+    src: https://www.tooplate.com/zip-templates/2121_wave_cafe.zip
+    dest: /tmp/
+    remote_src: true
+
+- name: "copy file to doc root"
+  when: ansible_os_family == "RedHat"
+  copy:
+    src: /tmp/2121_wave_cafe/
+    dest: /var/www/html/
+    owner: "{{ apache_user }}"
+    group: "{{ apache_user }}"
+    remote_src: true
+
+
+- name: "Checking disk free space 50mb"
+  debug:
+    msg: "Disk size left - {{ (ansible_mounts[0].size_available/1000000000) | round(2)}} GB"
