@@ -1,0 +1,4 @@
+---
+- name: "Checking disk free space 50mb"
+  debug:
+    msg: "Disk size left - {{ (ansible_mounts[0].size_available/1000000000) | round(2)}} GB"
