@@ -6,8 +6,6 @@
 PLAY [instaling website] *************************************************************************************************************************************************
 
 TASK [Gathering Facts] ***************************************************************************************************************************************************
-[WARNING]: Platform linux on host 172.31.35.155 is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter
-could change this. See https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information.
 ok: [172.31.35.155]
 
 TASK [include_tasks] *****************************************************************************************************************************************************
